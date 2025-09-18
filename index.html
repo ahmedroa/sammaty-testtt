@@ -10,6 +10,7 @@
             padding: 0;
             box-sizing: border-box;
         }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
@@ -25,7 +26,7 @@
 
         /* Header */
         header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #19439b;
             color: white;
             padding: 1rem 0;
             position: fixed;
@@ -44,9 +45,6 @@
         .logo {
             font-size: 1.8rem;
             font-weight: bold;
-            background: linear-gradient(45deg, #fff, #e0e7ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
         }
 
         .nav-links {
@@ -65,17 +63,15 @@
 
         .nav-links a:hover {
             background: rgba(255,255,255,0.2);
-            transform: translateY(-2px);
         }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            background: linear-gradient(135deg, #f8faff 0%, #e8f2ff 50%, #dbeafe 100%);
             min-height: 100vh;
             display: flex;
             align-items: center;
-            text-align: center;
+            padding-top: 80px;
             position: relative;
             overflow: hidden;
         }
@@ -87,115 +83,147 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>') repeat;
-            animation: float 20s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(25, 67, 155, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(37, 99, 235, 0.05) 0%, transparent 50%);
         }
 
         .hero-content {
             position: relative;
             z-index: 2;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 4rem;
+            width: 100%;
+        }
+
+        .hero-text {
+            text-align: right;
         }
 
         .hero h1 {
             font-size: 3.5rem;
             margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-            animation: slideInDown 1s ease-out;
-        }
-
-        @keyframes slideInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            color: #19439b;
+            line-height: 1.2;
+            font-weight: 700;
+            background: linear-gradient(135deg, #19439b 0%, #2563eb 50%, #1e40af 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: none;
         }
 
         .hero-subtitle {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             margin-bottom: 2rem;
-            opacity: 0.9;
-            animation: slideInUp 1s ease-out 0.3s both;
+            color: #4a5568;
+            line-height: 1.6;
         }
 
-        @keyframes slideInUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .hero-stats {
+        .hero-image {
             display: flex;
             justify-content: center;
-            gap: 3rem;
-            margin: 2rem 0;
-            animation: fadeIn 1s ease-out 0.6s both;
+            align-items: center;
         }
 
-        .stat {
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: bold;
-            display: block;
-            color: #ffd700;
-        }
-
-        .stat-text {
-            font-size: 0.9rem;
-            opacity: 0.8;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(25, 67, 155, 0.15);
         }
 
         .cta-button {
-            background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+            background: linear-gradient(135deg, #19439b 0%, #2563eb 50%, #1e40af 100%);
             color: white;
-            padding: 1rem 2.5rem;
+            padding: 1.2rem 2.5rem;
             border: none;
-            border-radius: 50px;
+            border-radius: 15px;
             font-size: 1.1rem;
             cursor: pointer;
             text-decoration: none;
             display: inline-block;
             transition: all 0.3s ease;
-            box-shadow: 0 10px 25px rgba(255, 107, 107, 0.3);
-            animation: pulse 2s infinite;
+            box-shadow: 0 6px 20px rgba(25, 67, 155, 0.3);
+            font-weight: 600;
+            position: relative;
+            overflow: hidden;
         }
 
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
         }
 
         .cta-button:hover {
+            background: linear-gradient(135deg, #1e40af 0%, #2563eb 50%, #19439b 100%);
             transform: translateY(-3px);
-            box-shadow: 0 15px 35px rgba(255, 107, 107, 0.4);
+            box-shadow: 0 10px 25px rgba(25, 67, 155, 0.4);
         }
 
-        /* Problems Section */
-        .problems {
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        /* Partners Section */
+        .partners {
+            padding: 4rem 0;
+            background: white;
+            text-align: center;
+            border-top: 1px solid rgba(25, 67, 155, 0.05);
+            border-bottom: 1px solid rgba(25, 67, 155, 0.05);
+        }
+
+        .partners-title {
+            color: #4a5568;
+            margin-bottom: 2rem;
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+
+        .partners-scroll {
+            overflow: hidden;
+            position: relative;
+            mask: linear-gradient(90deg, transparent, black 20%, black 80%, transparent);
+            -webkit-mask: linear-gradient(90deg, transparent, black 20%, black 80%, transparent);
+        }
+
+        .partners-track {
+            display: flex;
+            animation: scroll 25s linear infinite;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .partner-logo {
+            height: 50px;
+            opacity: 0.4;
+            transition: opacity 0.3s ease;
+            flex-shrink: 0;
+            filter: grayscale(100%);
+        }
+
+        .partner-logo:hover {
+            opacity: 0.8;
+            filter: grayscale(0%);
+        }
+
+        /* Section Styling */
+        .section {
             padding: 5rem 0;
-            background: #f8fafc;
         }
 
         .section-title {
@@ -204,13 +232,14 @@
             margin-bottom: 3rem;
             color: #2d3748;
             position: relative;
+            font-weight: 700;
         }
 
         .section-title::after {
             content: '';
             width: 80px;
             height: 4px;
-            background: linear-gradient(45deg, #667eea, #764ba2);
+            background: #19439b;
             position: absolute;
             bottom: -10px;
             left: 50%;
@@ -218,25 +247,41 @@
             border-radius: 2px;
         }
 
+        /* Problems Section */
+        .problems {
+            background: #f8fafc;
+        }
+
         .problems-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 2rem;
-            margin-bottom: 3rem;
         }
 
         .problem-card {
             background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            padding: 2.5rem 2rem;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(25, 67, 155, 0.08);
             transition: all 0.3s ease;
-            border-left: 5px solid #ff6b6b;
+            border: 1px solid rgba(25, 67, 155, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .problem-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #19439b, #2563eb, #1e40af);
         }
 
         .problem-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(25, 67, 155, 0.15);
         }
 
         .problem-icon {
@@ -248,7 +293,7 @@
             font-size: 1.3rem;
             margin-bottom: 1rem;
             color: #2d3748;
-            font-weight: bold;
+            font-weight: 600;
         }
 
         .problem-desc {
@@ -258,7 +303,6 @@
 
         /* Solutions Section */
         .solutions {
-            padding: 5rem 0;
             background: white;
         }
 
@@ -269,14 +313,15 @@
         }
 
         .solution-card {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #19439b 0%, #2563eb 50%, #1e40af 100%);
             color: white;
-            padding: 2rem;
-            border-radius: 15px;
+            padding: 2.5rem 2rem;
+            border-radius: 20px;
             text-align: center;
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
+            box-shadow: 0 8px 25px rgba(25, 67, 155, 0.25);
         }
 
         .solution-card::before {
@@ -301,7 +346,8 @@
         }
 
         .solution-card:hover {
-            transform: translateY(-10px) scale(1.02);
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(25, 67, 155, 0.35);
         }
 
         .solution-icon {
@@ -312,12 +358,11 @@
         .solution-title {
             font-size: 1.3rem;
             margin-bottom: 1rem;
-            font-weight: bold;
+            font-weight: 600;
         }
 
         /* Process Section */
         .process {
-            padding: 5rem 0;
             background: #f8fafc;
         }
 
@@ -336,7 +381,7 @@
         .step-number {
             width: 80px;
             height: 80px;
-            background: linear-gradient(45deg, #667eea, #764ba2);
+            background: linear-gradient(45deg, #19439b, #2563eb);
             color: white;
             border-radius: 50%;
             display: flex;
@@ -345,14 +390,14 @@
             font-size: 1.5rem;
             font-weight: bold;
             margin: 0 auto 1rem;
-            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+            box-shadow: 0 10px 25px rgba(25, 67, 155, 0.3);
         }
 
         .step-title {
             font-size: 1.2rem;
             margin-bottom: 0.5rem;
             color: #2d3748;
-            font-weight: bold;
+            font-weight: 600;
         }
 
         .step-desc {
@@ -362,7 +407,6 @@
 
         /* Testimonials */
         .testimonials {
-            padding: 5rem 0;
             background: white;
         }
 
@@ -377,12 +421,12 @@
             background: #f8fafc;
             padding: 2rem;
             border-radius: 15px;
-            border-left: 5px solid #667eea;
+            border-left: 5px solid #19439b;
             transition: all 0.3s ease;
         }
 
         .testimonial:hover {
-            transform: translateY(-5px);
+            transform: translateY(-3px);
             box-shadow: 0 15px 30px rgba(0,0,0,0.1);
         }
 
@@ -403,46 +447,114 @@
             margin-top: 0.5rem;
         }
 
-        /* CTA Section */
+        /* Final CTA */
         .final-cta {
-            padding: 5rem 0;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 6rem 0;
+            background: linear-gradient(135deg, #19439b 0%, #2563eb 50%, #1e40af 100%);
             color: white;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .final-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
         }
 
         .final-cta h2 {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             margin-bottom: 1rem;
+            font-weight: 700;
+            position: relative;
+            z-index: 2;
         }
 
         .final-cta p {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             margin-bottom: 2rem;
-            opacity: 0.9;
+            opacity: 0.95;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            max-width: 500px;
+            margin: 2rem auto;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 2;
+        }
+
+        .contact-form h3 {
+            color: #2d3748;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #19439b;
+            box-shadow: 0 0 0 3px rgba(25, 67, 155, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
         }
 
         /* Footer */
         footer {
-            background: #2d3748;
+            background: #19439b;
             color: white;
             padding: 3rem 0 1rem;
         }
 
         .footer-content {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            align-items: start;
+            gap: 3rem;
             margin-bottom: 2rem;
         }
 
         .footer-section h3 {
             margin-bottom: 1rem;
             color: #fff;
+            font-weight: 600;
         }
 
         .footer-section a {
-            color: #a0aec0;
+            color: rgba(255,255,255,0.8);
             text-decoration: none;
             display: block;
             margin-bottom: 0.5rem;
@@ -450,25 +562,35 @@
         }
 
         .footer-section a:hover {
-            color: #667eea;
+            color: #93c5fd;
         }
 
         .footer-bottom {
             text-align: center;
             padding-top: 2rem;
-            border-top: 1px solid #4a5568;
-            color: #a0aec0;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            color: rgba(255,255,255,0.8);
         }
 
         /* Responsive */
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                text-align: center;
             }
             
-            .hero-stats {
-                flex-direction: column;
-                gap: 1rem;
+            .hero-text {
+                text-align: center;
+                order: 2;
+            }
+            
+            .hero-image {
+                order: 1;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
             }
             
             .nav-links {
@@ -478,6 +600,20 @@
             .problems-grid,
             .solutions-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .partners-track {
+                gap: 2rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr !important;
+                text-align: center;
+                gap: 2rem;
+            }
+
+            .footer-section h3 {
+                text-align: center;
             }
         }
     </style>
@@ -501,33 +637,40 @@
     <section id="home" class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1>🎯 رعاية سمعية متخصصة في راحة منزلك</h1>
-                <p class="hero-subtitle">لا تعد تحتاج للخروج من المنزل! نأتي إليك بأحدث تقنيات فحص وبرمجة السماعات الطبية</p>
-                
-                <div class="hero-stats">
-                    <div class="stat">
-                        <span class="stat-number">+20</span>
-                        <span class="stat-text">سنة خبرة</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number">+1500</span>
-                        <span class="stat-text">عميل راضٍ</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number">24/7</span>
-                        <span class="stat-text">دعم متواصل</span>
+                <div class="hero-text">
+                    <h1>🎯 رعاية سمعية متخصصة في راحة منزلك 🏠</h1>
+                    <p class="hero-subtitle">بدون عيادة ولا انتظار! الأخصائي يجيك بأحدث الأجهزة! ✨</p>
+                    <a href="#contact" class="cta-button">احجز استشارتك المجانية الآن! 🚀</a>
+                </div>
+
+                <div class="hero-image">
+                    <div style="background: white; padding: 2rem; border-radius: 20px; box-shadow: 0 20px 60px rgba(25, 67, 155, 0.15); max-width: 400px;">
+                        <div style="text-align: center; color: #19439b;">
+                            <div style="font-size: 4rem; margin-bottom: 1rem;">🎧</div>
+                            <h3 style="margin-bottom: 1rem;">تطبيق سماعتي</h3>
+                            <p style="color: #718096; margin-bottom: 1.5rem;">خدمة سمعية في منزلك</p>
+                            <div style="display: flex; justify-content: center; gap: 1rem;">
+                                <div style="background: #f8fafc; padding: 1rem; border-radius: 10px; flex: 1; text-align: center;">
+                                    <div style="font-size: 1.5rem; font-weight: bold; color: #19439b;">20+</div>
+                                    <div style="font-size: 0.9rem; color: #718096;">سنة خبرة</div>
+                                </div>
+                                <div style="background: #f8fafc; padding: 1rem; border-radius: 10px; flex: 1; text-align: center;">
+                                    <div style="font-size: 1.5rem; font-weight: bold; color: #19439b;">1500+</div>
+                                    <div style="font-size: 0.9rem; color: #718096;">عميل راضٍ</div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                
-                <a href="#contact" class="cta-button">احجز موعدك المجاني الآن</a>
             </div>
         </div>
     </section>
 
+
     <!-- Problems Section -->
-    <section class="problems">
+    <section class="section problems">
         <div class="container">
-            <h2 class="section-title">التحديات التي نحلها لك</h2>
+            <h2 class="section-title">التحديات التي نحلها لك 💪</h2>
             <div class="problems-grid">
                 <div class="problem-card">
                     <div class="problem-icon">🔍</div>
@@ -569,9 +712,9 @@
     </section>
 
     <!-- Solutions Section -->
-    <section id="services" class="solutions" style="background: #f8fafc;">
+    <section class="section solutions">
         <div class="container">
-            <h2 class="section-title">لماذا سماعتي؟</h2>
+            <h2 class="section-title">لماذا سماعتي؟ 🌟</h2>
             <div class="solutions-grid">
                 <div class="solution-card">
                     <div class="solution-icon">🏠</div>
@@ -601,9 +744,9 @@
     </section>
 
     <!-- Process Section -->
-    <section id="process" class="process">
+    <section id="process" class="section process">
         <div class="container">
-            <h2 class="section-title">كيف نعمل؟</h2>
+            <h2 class="section-title">كيف نعمل؟ ⚡</h2>
             <p style="text-align: center; color: #718096; font-size: 1.1rem; margin-bottom: 2rem;">من الحجز إلى المتابعة... تجربة سلسة ومريحة</p>
             
             <div class="process-steps">
@@ -641,9 +784,9 @@
     </section>
 
     <!-- Testimonials -->
-    <section id="testimonials" class="testimonials">
+    <section id="testimonials" class="section testimonials">
         <div class="container">
-            <h2 class="section-title">آراء عملائنا الكرام</h2>
+            <h2 class="section-title">آراء عملائنا الكرام 💬</h2>
             <div class="testimonials-grid">
                 <div class="testimonial">
                     <p class="testimonial-text">"خدمة رائعة وراحة بال كبيرة. والدي كبير في السن وكان من الصعب نقله للعيادة، الآن الأخصائي يأتي إلينا والخدمة ممتازة. التطبيق سهل الاستخدام ومريح جداً"</p>
@@ -667,11 +810,49 @@
     </section>
 
     <!-- Final CTA -->
-    <section class="final-cta">
+    <section id="contact" class="final-cta">
         <div class="container">
-            <h2>جاهز لتجربة أفضل؟</h2>
-            <p>احجز استشارتك المجانية اليوم واكتشف الفرق</p>
-            <a href="#contact" class="cta-button">احجز الآن - استشارة مجانية</a>
+            <h2>جاهز لتجربة أفضل؟ 🚀</h2>
+            <p>احجز استشارتك المجانية اليوم واكتشف الفرق ✨</p>
+            
+            <!-- Contact Form -->
+            <div class="contact-form">
+                <h3>أرسل لنا رسالة</h3>
+                <form action="https://formspree.io/f/xnnbkgbz" method="POST" id="contactForm">
+                    <div class="form-group">
+                        <input type="text" name="name" placeholder="الاسم الكامل" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="tel" name="phone" placeholder="رقم الهاتف" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="البريد الإلكتروني" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <select name="service" required>
+                            <option value="">اختر الخدمة المطلوبة</option>
+                            <option value="فحص سمع">فحص سمع تشخيصي</option>
+                            <option value="برمجة سماعات">برمجة السماعات</option>
+                            <option value="استشارة">استشارة سمعية</option>
+                            <option value="صيانة">صيانة السماعات</option>
+                            <option value="مقاسات">أخذ مقاسات الأذن</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <textarea name="message" placeholder="اكتب رسالتك هنا..." rows="4" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="cta-button" style="width: 100%; margin: 0;">
+                        إرسال الرسالة 📨
+                    </button>
+                </form>
+            </div>
+            
+            <a href="tel:+966123456789" class="cta-button">أو احجز بالاتصال المباشر 📞</a>
         </div>
     </section>
 
@@ -679,33 +860,71 @@
     <footer>
         <div class="container">
             <div class="footer-content">
-                <div class="footer-section">
-                    <h3>خدماتنا</h3>
-                    <a href="#">فحص السمع التشخيصي</a>
-                    <a href="#">برمجة السماعات الطبية</a>
-                    <a href="#">استشارات وتوعية</a>
-                    <a href="#">خدمات الصيانة</a>
-                    <a href="#">أخذ مقاسات الأذن</a>
-                </div>
                 
-                <div class="footer-section">
-                    <h3>المناطق التي نغطيها</h3>
-                    <a href="#">الرياض</a>
-                    <a href="#">جدة</a>
-                    <a href="#">الدمام</a>
-                    <a href="#">مكة المكرمة</a>
+                <!-- الشعار والوصف - أقصى اليمين -->
+                <div class="footer-section" style="text-align: right;">
+                    <div style="display: flex; align-items: center; justify-content: flex-end; margin-bottom: 1rem;">
+                        <h3 style="font-size: 1.8rem; margin: 0 0.5rem 0 0;">سماعتي</h3>
+                        <div style="font-size: 2.5rem;">🎧</div>
+                    </div>
+                    <p style="color: rgba(255,255,255,0.9); line-height: 1.6; font-size: 0.95rem; text-align: right; margin-bottom: 1.5rem;">
+                        <strong>سماعتي هي منصة متخصصة في خدمات السمع تقدم فحوصات وبرمجة وصيانة السماعات مباشرة في منازل العملاء، لتسهيل الحصول على رعاية سمعية مريحة وموثوقة.</strong>
+                    </p>
+                    <!-- Social Media Icons -->
+                    <div style="display: flex; justify-content: flex-end; gap: 1rem;">
+                        <a href="#" style="color: rgba(255,255,255,0.8); font-size: 1.5rem; transition: color 0.3s ease;" title="فيسبوك">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                            </svg>
+                        </a>
+                        <a href="#" style="color: rgba(255,255,255,0.8); font-size: 1.5rem; transition: color 0.3s ease;" title="تويتر">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                            </svg>
+                        </a>
+                        <a href="#" style="color: rgba(255,255,255,0.8); font-size: 1.5rem; transition: color 0.3s ease;" title="لينكد إن">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </a>
+                        <a href="#" style="color: rgba(255,255,255,0.8); font-size: 1.5rem; transition: color 0.3s ease;" title="انستقرام">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                        </a>
+                    </div>
                 </div>
-                
-                <div class="footer-section">
-                    <h3>تواصل معنا</h3>
+
+                <!-- الصفحات - العمود الثاني -->
+                <div class="footer-section" style="text-align: right;">
+                    <h3>الصفحات</h3>
+                    <a href="#">المدونة</a>
+                    <a href="#">الأسئلة الشائعة</a>
+                    <a href="#">الميزات</a>
                     <a href="tel:+966123456789">📞 +966 12 345 6789</a>
                     <a href="mailto:info@sammaty.online">✉️ info@sammaty.online</a>
-                    <a href="#">📱 تطبيق سماعتي</a>
                 </div>
+
+                <!-- الصفحات القانونية - العمود الثالث -->
+                <div class="footer-section" style="text-align: right;">
+                    <h3>الصفحات القانونية</h3>
+                    <a href="#">سياسة الإلغاء</a>
+                    <a href="#">سياسة الخصوصية</a>
+                    <a href="#">الشروط والأحكام</a>
+                </div>
+
+                <!-- صُنع بـ - أقصى اليسار -->
+                <div class="footer-section" style="text-align: left;">
+                    <div style="margin-bottom: 2rem;">
+                        <span style="color: rgba(255,255,255,0.7);">صُنع بـ </span>
+                        <span style="color: #ff6b6b; font-size: 1.2rem;">❤</span>
+                    </div>
+                </div>
+                
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2025 سماعتي. جميع الحقوق محفوظة.</p>
+                <p>&copy; 2025 سماعتي. جميع الحقوق محفوظة</p>
             </div>
         </div>
     </footer>
@@ -748,12 +967,64 @@
             observer.observe(el);
         });
 
+        // Contact form styling
+        const inputs = document.querySelectorAll('input, select, textarea');
+        inputs.forEach(input => {
+            input.addEventListener('focus', function() {
+                this.style.borderColor = '#19439b';
+                this.style.boxShadow = '0 0 0 3px rgba(25, 67, 155, 0.1)';
+            });
+            
+            input.addEventListener('blur', function() {
+                this.style.borderColor = '#e2e8f0';
+                this.style.boxShadow = 'none';
+            });
+        });
+
+        // Form submission handler
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Show loading state
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'جاري الإرسال... ⏳';
+            submitBtn.disabled = true;
+            
+            // Get form data
+            const formData = new FormData(this);
+            
+            // Submit to Formspree
+            fetch(this.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                    alert('شكراً لك! تم إرسال رسالتك بنجاح وسنتواصل معك قريباً. 🎉');
+                    this.reset();
+                } else {
+                    throw new Error('Network response was not ok');
+                }
+            }).catch(error => {
+                alert('عذراً، حدث خطأ في الإرسال. يرجى المحاولة مرة أخرى أو الاتصال المباشر. 📞');
+            }).finally(() => {
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            });
+        });
+
         // Contact button click handler
         document.querySelectorAll('.cta-button').forEach(button => {
             button.addEventListener('click', function(e) {
                 if (this.getAttribute('href') === '#contact') {
                     e.preventDefault();
-                    alert('شكراً لاهتمامك! سيتم تحويلك لصفحة الحجز قريباً. \nللحجز المباشر اتصل على: +966 12 345 6789');
+                    document.getElementById('contact').scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
                 }
             });
         });
@@ -762,10 +1033,10 @@
         window.addEventListener('scroll', function() {
             const header = document.querySelector('header');
             if (window.scrollY > 100) {
-                header.style.background = 'rgba(102, 126, 234, 0.95)';
+                header.style.background = 'rgba(25, 67, 155, 0.95)';
                 header.style.backdropFilter = 'blur(10px)';
             } else {
-                header.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+                header.style.background = '#19439b';
                 header.style.backdropFilter = 'none';
             }
         });
