@@ -26,8 +26,8 @@
 
         /* Header */
         header {
-            background: #19439b;
-            color: white;
+            background: white;
+            color: #19439b;
             padding: 1rem 0;
             position: fixed;
             width: 100%;
@@ -45,6 +45,21 @@
         .logo {
             font-size: 1.8rem;
             font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #19439b;
+        }
+
+        .logo img {
+            height: 45px;
+            width: auto;
+            filter: none;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover img {
+            transform: scale(1.1) rotate(5deg);
         }
 
         .nav-links {
@@ -54,7 +69,7 @@
         }
 
         .nav-links a {
-            color: white;
+            color: #19439b;
             text-decoration: none;
             transition: all 0.3s ease;
             padding: 0.5rem 1rem;
@@ -62,12 +77,12 @@
         }
 
         .nav-links a:hover {
-            background: rgba(255,255,255,0.2);
+            background: rgba(25, 67, 155, 0.1);
         }
 
-        /* Hero Section */
+        /* Hero Section - خلفية بيضاء */
         .hero {
-            background: linear-gradient(135deg, #f8faff 0%, #e8f2ff 50%, #dbeafe 100%);
+            background: white;
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -275,9 +290,9 @@
             transform: translateX(-50%) scaleX(1);
         }
 
-        /* Problems Section */
+        /* Problems Section - خلفية بيضاء */
         .problems {
-            background: #f8fafc;
+            background: white;
         }
 
         .problems-grid {
@@ -389,9 +404,9 @@
             font-weight: 600;
         }
 
-        /* Process Section */
+        /* Process Section - خلفية بيضاء */
         .process {
-            background: #f8fafc;
+            background: white;
         }
 
         .process-steps {
@@ -758,59 +773,6 @@
             100% { box-shadow: 0 0 5px rgba(25, 67, 155, 0.2); }
         }
 
-        @keyframes typewriter {
-            from { width: 0 }
-            to { width: 100% }
-        }
-
-        @keyframes blink {
-            from, to { border-color: transparent }
-            50% { border-color: #19439b }
-        }
-
-        /* Animation Classes */
-        .animate-fade-in-up {
-            animation: fadeInUp 0.8s ease-out;
-        }
-
-        .animate-fade-in-down {
-            animation: fadeInDown 0.8s ease-out;
-        }
-
-        .animate-fade-in-left {
-            animation: fadeInLeft 0.8s ease-out;
-        }
-
-        .animate-fade-in-right {
-            animation: fadeInRight 0.8s ease-out;
-        }
-
-        .animate-bounce {
-            animation: bounce 2s infinite;
-        }
-
-        .animate-pulse {
-            animation: pulse 2s infinite;
-        }
-
-        .animate-float {
-            animation: float 3s ease-in-out infinite;
-        }
-
-        .animate-slide-blur {
-            animation: slideInBlur 1.2s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
-        }
-
-        .animate-glow {
-            animation: glow 2s ease-in-out infinite alternate;
-        }
-
-        .animate-delay-1 { animation-delay: 0.1s; }
-        .animate-delay-2 { animation-delay: 0.2s; }
-        .animate-delay-3 { animation-delay: 0.3s; }
-        .animate-delay-4 { animation-delay: 0.4s; }
-        .animate-delay-5 { animation-delay: 0.5s; }
-
         /* Responsive */
         @media (max-width: 768px) {
             .hero-content {
@@ -866,7 +828,10 @@
     <!-- Header -->
     <header>
         <nav class="container">
-            <div class="logo">🎧 سماعتي</div>
+            <div class="logo">
+                <img src="images/logo.png" alt="شعار سماعتي">
+                سماعتي
+            </div>
             <ul class="nav-links">
                 <li><a href="#home">الرئيسية</a></li>
                 <li><a href="#services">خدماتنا</a></li>
@@ -1103,7 +1068,7 @@
     <section class="made-with-love">
         <div class="container">
             <div class="love-line">
-                صُنع بحُب في قلب الرياض <span class="love-heart">❤️</span>
+                صُنع بحُب في قلب السعودية <span class="love-heart">❤️</span>
             </div>
         </div>
     </section>
@@ -1111,12 +1076,10 @@
     <script>
         // Enhanced Animation Scripts
         document.addEventListener('DOMContentLoaded', function() {
-            // Initialize all animations
             initializeAnimations();
         });
 
         function initializeAnimations() {
-            // Animated counter for stats
             const statsObserver = new IntersectionObserver(function(entries) {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -1126,12 +1089,10 @@
                 });
             }, { threshold: 0.5 });
 
-            // Observe stat numbers
             document.querySelectorAll('[style*="font-size: 1.5rem"]').forEach(stat => {
                 statsObserver.observe(stat);
             });
 
-            // Section titles animation
             const titleObserver = new IntersectionObserver(function(entries) {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -1145,7 +1106,6 @@
                 titleObserver.observe(title);
             });
 
-            // Cards staggered animation
             const cardsObserver = new IntersectionObserver(function(entries) {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -1154,7 +1114,6 @@
                             setTimeout(() => {
                                 card.style.opacity = '1';
                                 card.style.transform = 'translateY(0)';
-                                card.classList.add('animate-fade-in-up');
                             }, index * 150);
                         });
                         cardsObserver.unobserve(entry.target);
@@ -1166,50 +1125,6 @@
                 cardsObserver.observe(grid);
             });
 
-            // Floating elements
-            document.querySelectorAll('.problem-icon, .solution-icon').forEach(icon => {
-                icon.style.animationDelay = Math.random() * 2 + 's';
-                icon.classList.add('animate-float');
-            });
-
-            // Form inputs focus animation
-            document.querySelectorAll('input, select, textarea').forEach(input => {
-                input.addEventListener('focus', function() {
-                    this.style.transform = 'scale(1.02)';
-                    this.style.transition = 'all 0.3s ease';
-                    this.classList.add('animate-pulse');
-                });
-                
-                input.addEventListener('blur', function() {
-                    this.style.transform = 'scale(1)';
-                    this.classList.remove('animate-pulse');
-                });
-            });
-
-            // Love heart enhanced animation
-            const heartElement = document.querySelector('.love-heart');
-            if (heartElement) {
-                heartElement.addEventListener('mouseenter', function() {
-                    this.style.animation = 'bounce 0.6s ease-out';
-                });
-                
-                heartElement.addEventListener('animationend', function() {
-                    this.style.animation = 'heartbeat 2s ease-in-out infinite';
-                });
-            }
-
-            // CTA buttons enhanced hover
-            document.querySelectorAll('.cta-button').forEach(button => {
-                button.addEventListener('mouseenter', function() {
-                    this.classList.add('animate-glow');
-                });
-                
-                button.addEventListener('mouseleave', function() {
-                    this.classList.remove('animate-glow');
-                });
-            });
-
-            // Navigation smooth reveal
             const nav = document.querySelector('nav');
             nav.style.opacity = '0';
             nav.style.transform = 'translateY(-20px)';
@@ -1218,29 +1133,6 @@
                 nav.style.opacity = '1';
                 nav.style.transform = 'translateY(0)';
             }, 100);
-
-            // Logo animation
-            const logo = document.querySelector('.logo');
-            logo.addEventListener('mouseenter', function() {
-                this.style.animation = 'pulse 0.6s ease-out';
-            });
-
-            // Testimonials appear with typewriter effect
-            const testimonialObserver = new IntersectionObserver(function(entries) {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const textElement = entry.target.querySelector('.testimonial-text');
-                        if (textElement) {
-                            simulateTypewriter(textElement);
-                        }
-                        testimonialObserver.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.5 });
-
-            document.querySelectorAll('.testimonial').forEach(testimonial => {
-                testimonialObserver.observe(testimonial);
-            });
         }
 
         function animateStats(element) {
@@ -1254,29 +1146,13 @@
                     if (current >= number) {
                         element.textContent = number + (text.includes('+') ? '+' : '');
                         clearInterval(timer);
-                        element.classList.add('animate-pulse');
                     } else {
                         element.textContent = Math.floor(current) + (text.includes('+') ? '+' : '');
                     }
                 }, 40);
             }
         }
-
-        function simulateTypewriter(element) {
-            const originalText = element.textContent;
-            element.textContent = '';
-            element.style.borderRight = '2px solid #19439b';
-            
-            let i = 0;
-            const timer = setInterval(() => {
-                element.textContent = originalText.slice(0, i);
-                i++;
-                if (i > originalText.length) {
-                    clearInterval(timer);
-                    element.style.borderRight = 'none';
-                }
-            }, 30);
-        }
+        
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -1290,7 +1166,6 @@
             });
         });
 
-        // Add animation on scroll
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -1305,7 +1180,6 @@
             });
         }, observerOptions);
 
-        // Observe all cards and sections
         document.querySelectorAll('.problem-card, .solution-card, .step, .testimonial').forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(30px)';
@@ -1313,34 +1187,16 @@
             observer.observe(el);
         });
 
-        // Contact form styling
-        const inputs = document.querySelectorAll('input, select, textarea');
-        inputs.forEach(input => {
-            input.addEventListener('focus', function() {
-                this.style.borderColor = '#19439b';
-                this.style.boxShadow = '0 0 0 3px rgba(25, 67, 155, 0.1)';
-            });
-            
-            input.addEventListener('blur', function() {
-                this.style.borderColor = '#e2e8f0';
-                this.style.boxShadow = 'none';
-            });
-        });
-
-        // Form submission handler
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Show loading state
             const submitBtn = this.querySelector('button[type="submit"]');
             const originalText = submitBtn.textContent;
             submitBtn.textContent = 'جاري الإرسال... ⏳';
             submitBtn.disabled = true;
             
-            // Get form data
             const formData = new FormData(this);
             
-            // Submit to Formspree
             fetch(this.action, {
                 method: 'POST',
                 body: formData,
@@ -1362,68 +1218,17 @@
             });
         });
 
-        // Contact button click handler
-        document.querySelectorAll('.cta-button').forEach(button => {
-            button.addEventListener('click', function(e) {
-                if (this.getAttribute('href') === '#contact') {
-                    e.preventDefault();
-                    document.getElementById('contact').scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Header scroll effect
         window.addEventListener('scroll', function() {
             const header = document.querySelector('header');
             if (window.scrollY > 100) {
-                header.style.background = 'rgba(25, 67, 155, 0.95)';
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
                 header.style.backdropFilter = 'blur(10px)';
+                header.style.boxShadow = '0 2px 20px rgba(0,0,0,0.15)';
             } else {
-                header.style.background = '#19439b';
+                header.style.background = 'white';
                 header.style.backdropFilter = 'none';
+                header.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
             }
-        });
-
-        // Number counter animation
-        function animateCounter(element, target, duration = 2000) {
-            let start = 0;
-            const increment = target / (duration / 16);
-            const timer = setInterval(() => {
-                start += increment;
-                if (start >= target) {
-                    element.textContent = '+' + target;
-                    clearInterval(timer);
-                } else {
-                    element.textContent = '+' + Math.floor(start);
-                }
-            }, 16);
-        }
-
-        // Animate counters when they come into view
-        const counterObserver = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const number = entry.target;
-                    const text = number.textContent;
-                    const target = parseInt(text.replace(/\D/g, ''));
-                    if (target && !number.classList.contains('animated')) {
-                        number.classList.add('animated');
-                        if (text.includes('24/7')) {
-                            number.textContent = '24/7';
-                        } else {
-                            animateCounter(number, target);
-                        }
-                    }
-                }
-            });
-        }, { threshold: 0.5 });
-
-        document.querySelectorAll('.stat-number').forEach(counter => {
-            counterObserver.observe(counter);
         });
     </script>
 </body>
-</html>
