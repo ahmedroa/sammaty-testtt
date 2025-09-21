@@ -289,6 +289,61 @@
             transform: translateX(-50%) scaleX(1);
         }
 
+        /* About Us Section */
+        .about-us {
+            background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+        }
+
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-text {
+            text-align: center;
+        }
+
+        .about-text p {
+            font-size: 1.2rem;
+            line-height: 2;
+            color: #4a5568;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .stat-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(25, 67, 155, 0.08);
+            transition: all 0.3s ease;
+            border-right: 4px solid #19439b;
+        }
+
+        .stat-item:hover {
+            transform: translateX(-10px);
+            box-shadow: 0 15px 35px rgba(25, 67, 155, 0.15);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #19439b;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            color: #718096;
+        }
+
         /* Problems Section - خلفية بيضاء */
         .problems {
             background: white;
@@ -765,6 +820,14 @@
             .nav-links {
                 display: none;
             }
+
+            .about-content {
+                text-align: center;
+            }
+
+            .about-text {
+                text-align: center;
+            }
             
             .problems-grid,
             .solutions-grid {
@@ -802,6 +865,7 @@
             </div>
             <ul class="nav-links">
                 <li><a href="#home">الرئيسية</a></li>
+                <li><a href="#about">من نحن</a></li>
                 <li><a href="#services">خدماتنا</a></li>
                 <li><a href="#process">كيف نعمل</a></li>
                 <li><a href="#testimonials">آراء العملاء</a></li>
@@ -816,10 +880,12 @@
             <div class="hero-content">
                 <div class="hero-text">
                     <h1>رعاية سمعية متخصصة في راحة منزلك</h1>
-                    <p class="hero-subtitle">بدون عيادة ولا انتظار! الأخصائي يجيك بأحدث الأجهزة! ✨</p>
+                    <p class="hero-subtitle">بدون انتظار ولا زحمة مواعيد الاخصائي يجيك باحدث الأجهزة✨</p>
                     <a href="#contact" class="cta-button">حمل التطبيق الان  🚀</a>
                 </div>
-
+                <!-- <div class="logo">
+                    <img src="images/test.png" alt="صورة التطبيق" style="height: 350px;">
+                </div> -->
                 <div class="hero-image">
                     <div style="background: white; padding: 2rem; border-radius: 20px; box-shadow: 0 20px 60px rgba(25, 67, 155, 0.15); max-width: 400px;">
                         <div style="text-align: center; color: #19439b;">
@@ -827,14 +893,7 @@
                             <h3 style="margin-bottom: 1rem;">تطبيق سماعتي</h3>
                             <p style="color: #718096; margin-bottom: 1.5rem;">خدمة سمعية في منزلك</p>
                             <div style="display: flex; justify-content: center; gap: 1rem;">
-                                <div style="background: #f8fafc; padding: 1rem; border-radius: 10px; flex: 1; text-align: center;">
-                                    <div style="font-size: 1.5rem; font-weight: bold; color: #19439b;">20+</div>
-                                    <div style="font-size: 0.9rem; color: #718096;">سنة خبرة</div>
-                                </div>
-                                <div style="background: #f8fafc; padding: 1rem; border-radius: 10px; flex: 1; text-align: center;">
-                                    <div style="font-size: 1.5rem; font-weight: bold; color: #19439b;">1500+</div>
-                                    <div style="font-size: 0.9rem; color: #718096;">عميل راضٍ</div>
-                                </div>
+                           
                             </div>
                         </div>
                     </div>
@@ -843,14 +902,29 @@
         </div>
     </section>
 
-    <!-- Problems Section -->
-    <section class="section problems">
+    <!-- About Us Section -->
+    <section id="about" class="section about-us">
         <div class="container">
-            <h2 class="section-title">التحديات التي نحلها لك 💪</h2>
+            <h2 class="section-title">من نحن</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>نحن فريق من أخصائيين السمع السعوديين المؤهلين نسعد بتقديم خدمات اختبارات قياس السمع وبرمجة وإعادة برمجة جميع أنواع السماعات الطبية المتقدمة واستلامها للصيانة وأخذ مقاسات الأذن والتواصل مع شركات السماعات نيابة عن العملاء والمرضى دون مغادرة منزلك أو مكان عملك.</p>
+                    <p>هدفنا هو توفير العناية الشخصية وضمان الخصوصية وتحسين جودة حياتك خصوصاً لمن يصعب حضورهم للعيادات مثل كبار السن والحالات الخاصة.</p>
+                </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problems Section -->
+    <section id="services" class="section problems">
+        <div class="container">
+            <h2 class="section-title">خدماتنا</h2>
             <div class="problems-grid">
                 <div class="problem-card">
                     <div class="problem-icon">🔍</div>
-                    <h3 class="problem-title">فحص سمع تشخيصي</h3>
+                    <h3 class="problem-title">فحص سمع</h3>
                     <p class="problem-desc">فحص سمع شامل للحالات الجديدة والمراجعة بأحدث الأجهزة المحمولة</p>
                 </div>
                 
@@ -874,15 +948,10 @@
                 
                 <div class="problem-card">
                     <div class="problem-icon">📏</div>
-                    <h3 class="problem-title">أخذ مقاسات الأذن</h3>
+                    <h3 class="problem-title">أخذ طبعة الأذن</h3>
                     <p class="problem-desc">أخذ مقاسات طبعة الأذن لتجهيز القوالب وتصنيع السماعات الصغيرة المخصصة</p>
                 </div>
-                
-                <div class="problem-card">
-                    <div class="problem-icon">🛡️</div>
-                    <h3 class="problem-title">خدمة آمنة ومريحة</h3>
-                    <p class="problem-desc">إمكانية توفير ممرضة مرافقة وسائق بسيارة مجهزة لضمان الأمان والراحة</p>
-                </div>
+            
             </div>
         </div>
     </section>
@@ -910,11 +979,7 @@
                     <p>أحدث الأجهزة والتقنيات المحمولة لفحص وبرمجة السماعات الطبية في أي مكان</p>
                 </div>
                 
-                <div class="solution-card">
-                    <div class="solution-icon">🚗</div>
-                    <h3 class="solution-title">خدمة آمنة ومريحة</h3>
-                    <p>إمكانية توفير ممرضة مرافقة وسائق بسيارة مجهزة لضمان الأمان والراحة التامة</p>
-                </div>
+                
             </div>
         </div>
     </section>
@@ -985,14 +1050,14 @@
         </div>
     </section>
 
-    <!-- Final CTA -->
-    <!-- <section id="contact" class="final-cta">
-        <div class="container">aa
+  
+
+    <section id="contact" class="final-cta">
+        <div class="container">
             <h2>جاهز لتجربة أفضل؟ 🚀</h2>
             <p>احجز استشارتك المجانية اليوم واكتشف الفرق ✨</p>
-             -->
-            <!-- Contact Form -->
-            <!-- <div class="contact-form">
+            
+            <div class="contact-form">
                 <h3>أرسل لنا رسالة</h3>
                 <form action="https://formspree.io/f/xnnbkgbz" method="POST" id="contactForm">
                     <div class="form-group">
@@ -1026,21 +1091,20 @@
                         إرسال الرسالة 📨
                     </button>
                 </form>
-            </div> -->
-            
+            </div>
+        </section>
             <!-- <a href="tel:+966123456789" class="cta-button">أو احجز بالاتصال المباشر 📞</a>
         </div>
-    </section> -->
-
-    <!-- Made with Love -->
-    <section class="made-with-love">
-        <div class="container">
-            <div class="love-line">
-                صُنع بحُب في قلب السعودية <span class="love-heart">❤️</span>
-            </div>
-        </div>
     </section>
-
+    
+  <!-- Made with Love -->
+  <section class="made-with-love">
+    <div class="container">
+        <div class="love-line">
+            صُنع بحُب في قلب السعودية <span class="love-heart">❤️</span>
+        </div>
+    </div>
+</section>
     <!-- Footer -->
     <footer>
         <div class="container">
@@ -1054,6 +1118,7 @@
                 <div class="footer-section">
                     <h3>الصفحات</h3>
                     <a href="#home">الرئيسية</a>
+                    <a href="#about">من نحن</a>
                     <a href="#services">الخدمات</a>
                     <a href="#process">كيف نعمل</a>
                     <a href="#testimonials">آراء العملاء</a>
@@ -1070,8 +1135,6 @@
          
         </div>
     </footer>
-
-     
 
     <script>
         // Enhanced Animation Scripts
@@ -1185,37 +1248,6 @@
             el.style.transform = 'translateY(30px)';
             el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
             observer.observe(el);
-        });
-
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const submitBtn = this.querySelector('button[type="submit"]');
-            const originalText = submitBtn.textContent;
-            submitBtn.textContent = 'جاري الإرسال... ⏳';
-            submitBtn.disabled = true;
-            
-            const formData = new FormData(this);
-            
-            fetch(this.action, {
-                method: 'POST',
-                body: formData,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            }).then(response => {
-                if (response.ok) {
-                    alert('شكراً لك! تم إرسال رسالتك بنجاح وسنتواصل معك قريباً. 🎉');
-                    this.reset();
-                } else {
-                    throw new Error('Network response was not ok');
-                }
-            }).catch(error => {
-                alert('عذراً، حدث خطأ في الإرسال. يرجى المحاولة مرة أخرى أو الاتصال المباشر. 📞');
-            }).finally(() => {
-                submitBtn.textContent = originalText;
-                submitBtn.disabled = false;
-            });
         });
 
         window.addEventListener('scroll', function() {
